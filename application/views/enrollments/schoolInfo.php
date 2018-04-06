@@ -39,11 +39,8 @@
             <th data-field="price">District</th>
             <th data-field="id">Tehsil</th>
             <th data-field="name">UCS/Sub Division</th>
-            <th data-field="name">Village</th>
             <th data-field="price">Level</th>
-            <th data-field="price">Campus</th>
             <th data-field="id">Gender</th>
-            <th data-field="id">Medium</th>
             <th data-field="name">Viability Status</th>
             <th data-field="price">Status</th>
           </tr>
@@ -56,12 +53,9 @@
             <td><?php echo $value->school_name; ?></td>
             <td><?php echo $value->district; ?></td>
             <td><?php echo $value->tehsil; ?></td>
-            <td><?php echo $value->sub_division; ?></td>
-            <td><?php echo $value->village; ?></td>
+            <td><?php echo $value->ucs; ?></td>
             <td><?php echo $value->level; ?></td>
-            <td><?php echo $value->campus; ?></td>
             <td><?php echo $value->gender; ?></td>
-            <td><?php echo $value->medium; ?></td>
             <td><?php echo $value->viability_status; ?></td>
             <td><?php echo $value->status; ?></td>  
           </tr>

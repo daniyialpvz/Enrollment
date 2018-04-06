@@ -18,24 +18,26 @@ class reportings extends CI_Controller {
 		}
 	}
 
-	public function index($district_id = 0)
+	public function index($district_id = 0, $level_id = 0)
 	{
 		//default
-		if($district_id == 0){
+		if($district_id == 0 || $level_id == 0){
 			// print_r($district_id); exit;
 			$district = $this->district->fetchall();
 			$level = $this->level->fetchall();
 			$reportDefault = $this->enrollment->fetchForReportDefault(1);
+			// $byLevel = $this->enrollment->fetchByLevel(1);
 			$c = count($reportDefault);
 			// print_r($c); exit;
 			// print_r($districts); exit;
 			// $division = $this->division->fetchall();
-			$data = array('districts'=>$district,'levels'=>$level, 'reportDefaults'=>$reportDefault);
+			$data = array('districts'=>$district,'levels'=>$level, 'reportDefaults'=>$reportDefault, 'district_id'=>$district_id);
 
 			// $action == 1 ? $this->load->view("prints/divisions",$data) : $this->load->view("divisions/list",$data);
 			$this->load->view("reportings/list",$data);
 
-		}elseif ($district_id != 0) {
+		}else{
+			// $district_id != 0
 
 			$district = $this->district->fetchall();
 			$level = $this->level->fetchall();
@@ -44,7 +46,7 @@ class reportings extends CI_Controller {
 			// print_r($reportDefault); exit;
 			// print_r($districts); exit;
 			// $division = $this->division->fetchall();
-			$data = array('districts'=>$district,'levels'=>$level, 'reportDefaults'=>$reportDefault);
+			$data = array('districts'=>$district,'levels'=>$level, 'reportDefaults'=>$reportDefault, 'district_id'=>$district_id);
 
 			// $action == 1 ? $this->load->view("prints/divisions",$data) : $this->load->view("divisions/list",$data);
 			$this->load->view("reportings/list",$data);

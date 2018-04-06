@@ -35,7 +35,12 @@
                             foreach ($districts as $key => $value) {
                              $options[$value->id] = $value->name;
                             }
-                            echo form_dropdown('district_id', $options, '',$id);
+                            if($district_id == 0){
+                                echo form_dropdown('district_id', $options, '',$id);
+                            }else{
+                                echo form_dropdown('district_id', $options, $district_id ,$id);
+                            }
+                            
                         ?>
                       <label for="name">Districts</label>
                     </div>
@@ -45,7 +50,7 @@
                             $id = array('id'=>'levelsddl','class'=>'dropdownChangeAction');
                             $options = array();
                             foreach ($levels as $key => $value) {
-                             $options[$value->levels] = $value->levels;
+                             $options[$value->id] = $value->levels;
                             }
                             echo form_dropdown('level_id', $options, '',$id);
                         ?>
@@ -202,12 +207,12 @@
 <script type="text/javascript">
     $('.dropdownChangeAction').change(function () {
      var dddl=$('#districtsddl').val();
-     // var lddl=$('#levelsddl').val();
+     var lddl=$('#levelsddl').val();
      // var gddl=$('#gendersddl').val();
      // var mddl=$('#mediumddl').val();
      // var sddl=$('#statusddl').val();
      // var cddl=$('#campusddl').val();
-     alert(dddl);
+     // alert(dddl);
      // alert(lddl);
      // alert(gddl);
      // alert(mddl);
@@ -216,7 +221,8 @@
     
 
      // var status =$('#districtstatus').val();
-    var url ='<?php echo base_url(); ?>'+'index.php/Reportings/index/'+dddl;
+    // var url ='<?php echo base_url(); ?>'+'index.php/Actions/index/0/'+ddl+'/'+status; 
+    var url ='<?php echo base_url(); ?>'+'index.php/Reportings/index/'+dddl+'/'+lddl;
     // alert(url); 
      window.location.href = url;
      });
