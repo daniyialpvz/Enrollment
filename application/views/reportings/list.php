@@ -207,7 +207,7 @@
 <script type="text/javascript">
     $('.dropdownChangeAction').change(function () {
      var dddl=$('#districtsddl').val();
-     var lddl=$('#levelsddl').val();
+     // var lddl=$('#levelsddl').val();
      // var gddl=$('#gendersddl').val();
      // var mddl=$('#mediumddl').val();
      // var sddl=$('#statusddl').val();
@@ -222,7 +222,7 @@
 
      // var status =$('#districtstatus').val();
     // var url ='<?php echo base_url(); ?>'+'index.php/Actions/index/0/'+ddl+'/'+status; 
-    var url ='<?php echo base_url(); ?>'+'index.php/Reportings/index/'+dddl+'/'+lddl;
+    var url ='<?php echo base_url(); ?>'+'index.php/Reportings/index/'+dddl;
     // alert(url); 
      window.location.href = url;
      });
